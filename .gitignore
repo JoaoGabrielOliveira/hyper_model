@@ -1,0 +1,7 @@
+# Remove additional repository
+/vendor/*
+
+# Remove no import files
+/composer.lock
+
+*.example

@@ -1,0 +1,35 @@
+{
+    "name": "hypercode/model",
+    "description": "",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "JoaoGabrielOliveira",
+            "email": "joaog.conceicao@hotmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    
+    "autoload": {
+        "psr-4": {
+            "Hyper\\Base\\": ["src"]
+        }
+    },
+    
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/JoaoGabrielOliveira/colored_console"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/JoaoGabrielOliveira/db_operations"
+        }
+    ],
+
+    "require": {
+        "hypercode/colored_console": "dev-main",
+        "hypercode/db_operations":"dev-main"
+    }
+}
