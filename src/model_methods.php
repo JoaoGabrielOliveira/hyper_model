@@ -2,6 +2,7 @@
 namespace Hyper\Base\Model;
 
 use Hyper\Database\CRUD\select;
+use Hyper\Database\CRUD\insert;
 
 trait ModelMethods
 {
@@ -18,6 +19,11 @@ trait ModelMethods
     public static function find_by($params)
     {
         return (object)select::execute(self::table_name(), '*', $params)[0];
+    }
+
+    public static function create($params)
+    {
+        return (object)insert::execute(self::table_name(),$params);
     }
 
     private static function table_name()

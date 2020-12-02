@@ -6,6 +6,7 @@ use Exception;
 
 use Hyper\Base\Model\ModelMethods;
 use Hyper\Database\Operations;
+use Hyper\Database\CRUD\insert;
 
 class Model
 {
@@ -17,7 +18,7 @@ class Model
     public function __construct(...$params)
     {
         $first_param = $params[0];
-        $this->columns = Operations::get_all_collumns(get_called_class());
+        $this->columns = Operations::get_all_collumns($this->table_name());
         $this->fields = (array)$first_param;
     }
 
@@ -34,6 +35,13 @@ class Model
             $this->fields[$field] = $value;
         throw new Exception;
     }
+
+    public function save()
+    {
+        insert::execute($this->table_name(),$this->fields);
+    }
+
+    /*Private methods*/
 
     private function field_exist($field)
     {
